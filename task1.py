@@ -35,16 +35,15 @@ class Manager:
             return self.res
         except Exception as e:
             self.res = e
-            print(e)
         return self.res
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         if self.res is Exception:
-            print(self.res)
+            return self.res
 
 
 with Manager(5, 'asd') as m1:
-    print()
+    print(m1)
 
 with Manager(5, 0) as m2:
-    print()
+    print(m2)
